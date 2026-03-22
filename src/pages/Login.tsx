@@ -37,7 +37,7 @@ export default function Login() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-md w-full"
+          className="max-w-xl w-full"
         >
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg shadow-lg shadow-indigo-300/50 mb-4">
@@ -47,7 +47,7 @@ export default function Login() {
             <p className="text-slate-500 mt-2 font-medium">Sign in to continue to my app</p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-10 border border-slate-100">
+          <div className="bg-white rounded-xl shadow-lg p-8 sm:p-10 border border-slate-100">
             <form onSubmit={handleSubmit} className="space-y-6">
               {error && (
                 <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm font-medium border border-red-100">

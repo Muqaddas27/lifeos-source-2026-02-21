@@ -7,7 +7,7 @@ export default function About() {
   return (
     <LandingLayout>
       <section className="pt-20 pb-12 lg:pt-32 lg:pb-20 mt-12">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ export default function About() {
 
       {/* Story Section */}
       <section className="py-20 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-4xl font-black text-slate-900 tracking-tight">Why my app?</h2>
@@ -62,7 +62,7 @@ export default function About() {
 
       {/* Values */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black text-slate-900 tracking-tight">Our Core Values</h2>
           </div>
@@ -100,3 +100,4 @@ function ValueCard({ icon: Icon, title, description }: any) {
     </div>
   );
 }
+

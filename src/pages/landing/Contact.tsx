@@ -20,7 +20,7 @@ export default function Contact() {
   return (
     <LandingLayout>
       <section className="pt-20 pb-12 lg:pt-32 lg:pb-20 mt-12">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <motion.div
@@ -141,3 +141,4 @@ function ContactInfo({ icon: Icon, title, value }: any) {
     </div>
   );
 }
+

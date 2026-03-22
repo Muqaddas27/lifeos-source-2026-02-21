@@ -8,7 +8,7 @@ export default function Pricing() {
   return (
     <LandingLayout>
       <section className="pt-20 pb-12 lg:pt-32 lg:pb-20 mt-12">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -111,3 +111,4 @@ function PricingCard({ icon: Icon, tier, price, description, features, cta, high
     </div>
   );
 }
+

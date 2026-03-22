@@ -33,31 +33,30 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
-        isScrolled 
-          ? "bg-white/80 backdrop-blur-xl border-b border-slate-200/60 py-4 shadow-sm" 
-          : "bg-transparent py-6"
+        "fixed top-0 left-0 right-0 z-[100] transition-all duration-300",
+        isScrolled
+          ? "bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-[0_12px_24px_-18px_rgba(15,23,42,0.5)]"
+          : "bg-white/80 backdrop-blur-md"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center shadow-indigo-200 shadow-lg group-hover:rotate-6 transition-transform">
-            <Activity className="text-white w-5 h-5" />
+      <div className="site-container h-16 flex items-center justify-between gap-4">
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-9 h-9 bg-slate-900 rounded flex items-center justify-center transition-transform group-hover:scale-105">
+            <Activity className="text-white w-4 h-4" />
           </div>
-          <span className="text-2xl font-black text-slate-900 tracking-tighter italic">my app</span>
+          <span className="text-xl font-black text-slate-900 tracking-tight">my app</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.href}
               className={cn(
-                "text-sm font-bold transition-colors",
-                location.pathname === link.href 
-                  ? "text-indigo-600" 
-                  : "text-slate-500 hover:text-slate-900"
+                "px-3 py-2 rounded text-sm font-bold transition-colors",
+                location.pathname === link.href
+                  ? "text-slate-900 bg-slate-100"
+                  : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
               )}
             >
               {link.name}
@@ -65,97 +64,72 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
-          <Link 
-            to="/login" 
-            className="text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors"
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            to="/login"
+            className="px-3 py-2 rounded text-sm font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
           >
             Login
           </Link>
           <Link
             to="/signup"
-            className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100"
+            className="px-4 py-2 rounded bg-slate-900 text-white text-sm font-bold hover:bg-slate-700 transition-colors"
           >
             Get Started
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
-          onClick={() => setIsMobileMenuOpen(true)}
+        <button
+          className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded transition-colors"
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
         >
-          <Menu className="w-6 h-6" />
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[110]"
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white z-[120] p-8 shadow-2xl flex flex-col"
-            >
-              <div className="flex items-center justify-between mb-12">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                    <Activity className="text-white w-4 h-4" />
-                  </div>
-                  <span className="text-xl font-black text-slate-900 italic">my app</span>
-                </div>
-                <button 
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            className="md:hidden border-t border-slate-200 bg-white"
+          >
+            <div className="site-container py-4 space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-slate-400 hover:bg-slate-100 rounded-lg transition-colors"
+                  className={cn(
+                    "block px-3 py-3 rounded text-base font-bold transition-colors",
+                    location.pathname === link.href
+                      ? "bg-slate-100 text-slate-900"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                  )}
                 >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
+                  {link.name}
+                </Link>
+              ))}
 
-              <nav className="flex flex-col gap-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={cn(
-                      "text-xl font-black tracking-tight transition-colors",
-                      location.pathname === link.href ? "text-indigo-600" : "text-slate-400 hover:text-slate-900"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </nav>
-
-              <div className="mt-auto space-y-4">
+              <div className="pt-3 grid grid-cols-2 gap-2">
                 <Link
                   to="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full text-center py-4 rounded-lg font-bold text-slate-600 bg-slate-50 hover:bg-slate-100 transition-colors"
+                  className="text-center px-3 py-3 rounded bg-slate-50 text-slate-700 font-bold"
                 >
                   Login
                 </Link>
                 <Link
                   to="/signup"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full text-center py-4 rounded-lg font-bold text-white bg-indigo-600 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100"
+                  className="text-center px-3 py-3 rounded bg-slate-900 text-white font-bold"
                 >
                   Get Started
                 </Link>
               </div>
-            </motion.div>
-          </>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>

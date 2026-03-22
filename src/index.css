@@ -10,6 +10,10 @@
 }
 
 @layer utilities {
+  .site-container {
+    @apply w-full max-w-[92rem] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10;
+  }
+
   .glass {
     @apply bg-white/70 backdrop-blur-md border border-white/20;
   }

@@ -18,7 +18,7 @@ export default function Features() {
   return (
     <LandingLayout>
       <section className="pt-20 pb-12 lg:pt-32 lg:pb-20 bg-slate-50/50 mt-12">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -46,7 +46,7 @@ export default function Features() {
 
       {/* Feature Sections */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 space-y-20">
+        <div className="site-container space-y-20">
           <FeatureSection 
             icon={CheckSquare}
             title="Task Management"
@@ -91,7 +91,7 @@ export default function Features() {
 
       {/* Grid of smaller features */}
       <section className="py-20 bg-gradient-to-b from-white to-slate-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight mb-4">
               Why teams choose my app
@@ -177,3 +177,4 @@ function SmallFeature({ icon: Icon, title, description, color }: any) {
     </div>
   );
 }
+

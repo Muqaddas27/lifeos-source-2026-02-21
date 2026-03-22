@@ -1,4 +1,5 @@
-const API_BASE = "/api";
+const RAW_API_BASE = import.meta.env.VITE_API_BASE_URL || "/api";
+const API_BASE = RAW_API_BASE.replace(/\/$/, "");
 
 const getHeaders = () => {
   const token = localStorage.getItem("token");
@@ -23,9 +24,24 @@ export const api = {
       headers: { ...getHeaders(), ...options.headers },
     });
 
+    const contentType = response.headers.get("content-type") || "";
+    const isJson = contentType.includes("application/json");
+
     if (!response.ok) {
+      if (!isJson) {
+        const body = await response.text();
+        const snippet = body.slice(0, 120).replace(/\s+/g, " ").trim();
+        throw new Error(`API request failed (${response.status}). Non-JSON response received. Check VITE_API_BASE_URL and backend deployment. ${snippet}`);
+      }
+
       const error = await response.json();
-      throw new Error(error.error || "Something went wrong");
+      throw new Error(error.error || `Request failed with status ${response.status}`);
+    }
+
+    if (!isJson) {
+      const body = await response.text();
+      const snippet = body.slice(0, 120).replace(/\s+/g, " ").trim();
+      throw new Error(`API misconfiguration detected. Expected JSON but got ${contentType || "unknown content type"}. ${snippet}`);
     }
 
     const data = await response.json();

@@ -31,7 +31,7 @@ export default function Home() {
           <div className="absolute bottom-[10%] right-[-10%] w-[30%] h-[30%] bg-rose-100/50 blur-[120px] rounded-full" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,7 @@ export default function Home() {
 
       {/* Features Grid */}
       <section className="py-20 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">
               Everything you need to <br /> <span className="text-indigo-600">stay on top.</span>
@@ -157,7 +157,7 @@ export default function Home() {
 
       {/* How It Works */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-8">
@@ -203,7 +203,7 @@ export default function Home() {
           <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-600 blur-[120px] rounded-full" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+        <div className="site-container relative z-10">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 text-xs font-black uppercase tracking-widest mb-6 border border-indigo-100">
               <Users className="w-3 h-3" />
@@ -237,7 +237,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="w-screen mx-[calc(50%-50vw)] py-16 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="site-container">
           <div className="bg-indigo-600 rounded-xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-[0_40px_80px_-20px_rgba(79,70,229,0.5)]">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl" />
             <div className="relative z-10">
@@ -341,3 +341,4 @@ function TestimonialCard({ quote, author, role }: any) {
     </div>
   );
 }
+
