@@ -53,14 +53,14 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
                 <Link
                   to="/signup"
-                  className="w-full sm:w-auto bg-indigo-600 text-white px-10 py-5 rounded-lg font-black text-lg hover:bg-indigo-700 transition-all shadow-[0_20px_40px_-10px_rgba(79,70,229,0.4)] flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto bg-indigo-600 text-white px-7 py-3.5 rounded font-black text-base hover:bg-indigo-700 transition-all shadow-[0_16px_32px_-12px_rgba(79,70,229,0.4)] flex items-center justify-center gap-2 group"
                 >
                   Get Started Free
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link
                   to="/dashboard"
-                  className="w-full sm:w-auto bg-white text-slate-900 px-10 py-5 rounded-lg font-black text-lg border border-slate-200 hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto bg-white text-slate-900 px-7 py-3.5 rounded font-black text-base border border-slate-200 hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
                 >
                   View Live Demo
                 </Link>
@@ -236,32 +236,28 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-screen mx-[calc(50%-50vw)] py-16 bg-slate-50/50">
-        <div className="site-container">
-          <div className="bg-indigo-600 rounded-xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-[0_40px_80px_-20px_rgba(79,70,229,0.5)]">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl" />
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-8">
-                Ready to take control <br /> of your life?
-              </h2>
-              <p className="text-indigo-100 text-lg font-medium mb-12 max-w-xl mx-auto">
-                Join thousands of users who are mastering their time and achieving their goals with my app.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  to="/signup"
-                  className="w-full sm:w-auto bg-white text-indigo-600 px-10 py-5 rounded-lg font-black text-lg hover:bg-slate-50 transition-all shadow-xl"
-                >
-                  Get Started for Free
-                </Link>
-                <Link
-                  to="/contact"
-                  className="w-full sm:w-auto bg-indigo-700 text-white px-10 py-5 rounded-lg font-black text-lg hover:bg-indigo-800 transition-all border border-indigo-500"
-                >
-                  Contact Sales
-                </Link>
-              </div>
-            </div>
+      <section className="w-screen mx-[calc(50%-50vw)] py-10 md:py-12 bg-indigo-600 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+        <div className="site-container relative z-10 text-center py-2 md:py-4">
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-5 md:mb-6">
+            Ready to take control <br /> of your life?
+          </h2>
+          <p className="text-indigo-100 text-base md:text-lg font-medium mb-7 md:mb-8 max-w-xl mx-auto">
+            Join thousands of users who are mastering their time and achieving their goals with my app.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/signup"
+              className="w-full sm:w-auto bg-white text-indigo-600 px-7 py-3.5 rounded font-black text-base hover:bg-slate-50 transition-all shadow-xl"
+            >
+              Get Started for Free
+            </Link>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto bg-indigo-700 text-white px-7 py-3.5 rounded font-black text-base hover:bg-indigo-800 transition-all border border-indigo-500"
+            >
+              Contact Sales
+            </Link>
           </div>
         </div>
       </section>
